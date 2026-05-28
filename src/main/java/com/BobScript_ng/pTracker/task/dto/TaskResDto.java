@@ -23,9 +23,9 @@ public class TaskResDto {
 
     private TaskStatus status;
 
-    private LocalDateTime dead_line;
+    private LocalDateTime deadLine;
 
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     private Long projectId;
 

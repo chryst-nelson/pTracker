@@ -3,6 +3,7 @@ package com.BobScript_ng.pTracker.user.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.BobScript_ng.pTracker.project.dto.ProjectResDto;
 import com.BobScript_ng.pTracker.project.entity.Projects;
 
 import lombok.AllArgsConstructor;
@@ -19,5 +20,5 @@ public class ResUserDto {
 
     private String fullname;
 
-    private List<Projects> projects = new ArrayList<>();
+    private List<ProjectResDto> projects = new ArrayList<>();
 }

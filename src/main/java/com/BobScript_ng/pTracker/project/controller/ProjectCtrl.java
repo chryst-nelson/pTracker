@@ -23,58 +23,58 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping("api/v1")
 @RequiredArgsConstructor
 public class ProjectCtrl {
-    private final ProjectService service;
+        private final ProjectService service;
 
-    @PostMapping("/project/{id}")
-    public ResponseEntity<ApiResponse<ProjectResDto>> createProject(@RequestBody ProjectReqDto dto,
-            @PathVariable long id) {
+        @PostMapping("/project/{id}")
+        public ResponseEntity<ApiResponse<ProjectResDto>> createProject(@RequestBody ProjectReqDto dto,
+                        @PathVariable long id) {
 
-        ProjectResDto project = service.createProject(dto, id);
-        return ResponseEntity.status(201).body(
-                ApiResponse.<ProjectResDto>builder().status(true).data(project)
-                        .build());
-    }
+                ProjectResDto project = service.createProject(dto, id);
+                return ResponseEntity.status(201).body(
+                                ApiResponse.<ProjectResDto>builder().status(true).data(project)
+                                                .build());
+        }
 
-    @GetMapping("/project")
-    public ResponseEntity<ApiResponse<List<ProjectResDto>>> getProject() {
+        @GetMapping("/project")
+        public ResponseEntity<ApiResponse<List<ProjectResDto>>> getProject() {
 
-        List<ProjectResDto> project = service.getProjects();
+                List<ProjectResDto> project = service.getProjects();
 
-        return ResponseEntity.status(201).body(
-                ApiResponse.<List<ProjectResDto>>builder().status(true).data(project)
-                        .build());
+                return ResponseEntity.status(200).body(
+                                ApiResponse.<List<ProjectResDto>>builder().status(true).data(project)
+                                                .build());
 
-    }
+        }
 
-    @GetMapping("/project/{id}")
-    public ResponseEntity<ApiResponse<ProjectResDto>> getSingleProject(@PathVariable long id) {
+        @GetMapping("/project/{id}")
+        public ResponseEntity<ApiResponse<ProjectResDto>> getSingleProject(@PathVariable long id) {
 
-        ProjectResDto project = service.getSingleProject(id);
+                ProjectResDto project = service.getSingleProject(id);
 
-        return ResponseEntity.status(201).body(
-                ApiResponse.<ProjectResDto>builder().status(true).data(project)
-                        .build());
+                return ResponseEntity.status(200).body(
+                                ApiResponse.<ProjectResDto>builder().status(true).data(project)
+                                                .build());
 
-    }
+        }
 
-    @PutMapping("/project/{id}")
-    public ResponseEntity<ApiResponse<ProjectResDto>> updateProject(@RequestBody ProjectReqDto dto,
-            @PathVariable long id) {
+        @PutMapping("/project/{id}")
+        public ResponseEntity<ApiResponse<ProjectResDto>> updateProject(@RequestBody ProjectReqDto dto,
+                        @PathVariable long id) {
 
-        ProjectResDto project = service.updateProject(dto, id);
+                ProjectResDto project = service.updateProject(dto, id);
 
-        return ResponseEntity.status(200).body(
-                ApiResponse.<ProjectResDto>builder().status(true).data(project)
-                        .build());
+                return ResponseEntity.status(200).body(
+                                ApiResponse.<ProjectResDto>builder().status(true).data(project)
+                                                .build());
 
-    }
+        }
 
-    @DeleteMapping("/project/{id}")
-    public ResponseEntity<ApiResponse<String>> deleteProject(@PathVariable long id) {
-        service.deleteProject(id);
-        return ResponseEntity.status(200).body(
-                ApiResponse.<String>builder().status(true).data("Project deleted successfully")
-                        .build());
-    }
+        @DeleteMapping("/project/{id}")
+        public ResponseEntity<ApiResponse<String>> deleteProject(@PathVariable long id) {
+                service.deleteProject(id);
+                return ResponseEntity.status(200).body(
+                                ApiResponse.<String>builder().status(true).data("Project deleted successfully")
+                                                .build());
+        }
 
 }

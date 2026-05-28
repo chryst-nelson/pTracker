@@ -3,6 +3,7 @@ package com.BobScript_ng.pTracker.user.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.BobScript_ng.pTracker.project.dto.ProjectResDto;
 import com.BobScript_ng.pTracker.project.entity.Projects;
 
 import jakarta.validation.constraints.Email;
@@ -23,5 +24,5 @@ public class ReqUserDto {
     @NotBlank(message = "Fullname is required")
     private String fullname;
 
-    private List<Projects> projects = new ArrayList<>();
+    private List<ProjectResDto> projects = new ArrayList<>();
 }

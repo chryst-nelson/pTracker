@@ -3,6 +3,7 @@ package com.BobScript_ng.pTracker.project.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.BobScript_ng.pTracker.task.dto.TaskResDto;
 import com.BobScript_ng.pTracker.task.entity.Tasks;
 import com.BobScript_ng.pTracker.user.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -47,5 +48,5 @@ public class Projects {
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Tasks> tasks = new ArrayList<>();
+    private List<TaskResDto> tasks = new ArrayList<>();
 }

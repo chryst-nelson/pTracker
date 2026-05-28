@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.BobScript_ng.pTracker.user.dto.ReqUserDto;
 import com.BobScript_ng.pTracker.user.dto.ResUserDto;
-import com.BobScript_ng.pTracker.user.entity.User;
-import com.BobScript_ng.pTracker.user.mapper.UserMapper;
+
 import com.BobScript_ng.pTracker.user.service.UserServiceImpl;
 import com.BobScript_ng.pTracker.util.ApiResponse;
 

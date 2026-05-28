@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 public class TaskServiceImpl implements TaskService {
     private final TaskRepo taskRepo;
     private final TaskMapper taskMapper;
-    private final ProjectService projectService;
     private final ProjectRepo projectRepo;
 
     @Override
