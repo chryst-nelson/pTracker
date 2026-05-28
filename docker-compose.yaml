@@ -1,0 +1,52 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432" # Host port 5432 → Container port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+  postgres2:
+    image: postgres:16-alpine
+    container_name: postgres-db2
+    environment:
+      POSTGRES_DB: mydb2
+      POSTGRES_USER: myuser2
+      POSTGRES_PASSWORD: mypassword2
+    ports:
+      - "5433:5432" # Host port 5433 → Container port 5432
+    volumes:
+      - postgres_data2:/var/lib/postgresql/data
+    networks:
+      - spring-network
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    networks:
+      - spring-network
+    depends_on:
+      - postgres
+      - postgres2
+
+networks:
+  spring-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  postgres_data2:
