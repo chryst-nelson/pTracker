@@ -1,10 +1,5 @@
 package com.BobScript_ng.pTracker.user.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.BobScript_ng.pTracker.project.dto.ProjectResDto;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -28,5 +23,5 @@ public class ReqUserDto {
     @Size(min = 6)
     private String password;
 
-    private List<ProjectResDto> projects = new ArrayList<>();
+    // private List<ProjectResDto> projects = new ArrayList<>();
 }

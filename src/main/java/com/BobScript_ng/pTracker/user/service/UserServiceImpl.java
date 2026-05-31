@@ -9,9 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.BobScript_ng.pTracker.common.exceptionHandler.DuplicationException;
 import com.BobScript_ng.pTracker.common.exceptionHandler.ResourceNotFound;
-import com.BobScript_ng.pTracker.user.dto.ReqUserDto;
 import com.BobScript_ng.pTracker.user.dto.ResUserDto;
 import com.BobScript_ng.pTracker.user.entity.User;
 import com.BobScript_ng.pTracker.user.mapper.UserMapper;
@@ -29,18 +27,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return repo.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
-    }
-
-    @Override
-    public ResUserDto createUser(ReqUserDto reqUserDto) {
-
-        if (repo.existsByEmail(reqUserDto.getEmail())) {
-            throw new DuplicationException("Email already exist choose another one");
-        }
-        User user = mapper.toEntity(reqUserDto);
-        User savedUser = repo.save(user);
-        return mapper.toResponse(savedUser);
-
     }
 
     @Override

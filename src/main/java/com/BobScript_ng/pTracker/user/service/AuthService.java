@@ -12,6 +12,7 @@ import com.BobScript_ng.pTracker.user.entity.User;
 import com.BobScript_ng.pTracker.user.dto.AuthLoginDto;
 import com.BobScript_ng.pTracker.user.dto.AuthResDto;
 import com.BobScript_ng.pTracker.user.dto.ReqUserDto;
+import com.BobScript_ng.pTracker.user.dto.ResUserDto;
 import com.BobScript_ng.pTracker.user.mapper.UserMapper;
 import com.BobScript_ng.pTracker.user.repository.UserRepo;
 import com.BobScript_ng.pTracker.util.JwtUtil;
@@ -28,7 +29,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final UserMapper userMapper;
 
-    public AuthResDto register(ReqUserDto request) {
+    public ResUserDto register(ReqUserDto request) {
         if (userRepo.existsByEmail(request.getEmail())) {
             throw new DuplicationException("Email already exists");
         }
@@ -37,8 +38,7 @@ public class AuthService {
         user.setRole(Role.USER);
 
         User savedUser = userRepo.save(user);
-        String token = jwtUtil.generateToken(savedUser);
-        return new AuthResDto(token, savedUser.getEmail(), savedUser.getRole().name());
+        return userMapper.toResponse(savedUser);
     }
 
     public AuthResDto login(AuthLoginDto request) {
