@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.BobScript_ng.pTracker.project.dto.ProjectResDto;
-import com.BobScript_ng.pTracker.project.entity.Projects;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +23,10 @@ public class ReqUserDto {
 
     @NotBlank(message = "Fullname is required")
     private String fullname;
+
+    @NotBlank
+    @Size(min = 6)
+    private String password;
 
     private List<ProjectResDto> projects = new ArrayList<>();
 }

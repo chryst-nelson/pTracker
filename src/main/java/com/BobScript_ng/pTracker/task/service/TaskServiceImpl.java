@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.BobScript_ng.pTracker.common.exceptionHandler.ResourceNotFound;
-import com.BobScript_ng.pTracker.project.dto.ProjectResDto;
 import com.BobScript_ng.pTracker.project.entity.Projects;
 import com.BobScript_ng.pTracker.project.repository.ProjectRepo;
-import com.BobScript_ng.pTracker.project.service.ProjectService;
-import com.BobScript_ng.pTracker.project.service.ProjectServiceImpl;
+
 import com.BobScript_ng.pTracker.task.dto.TaskReqDto;
 import com.BobScript_ng.pTracker.task.dto.TaskResDto;
 import com.BobScript_ng.pTracker.task.entity.Tasks;

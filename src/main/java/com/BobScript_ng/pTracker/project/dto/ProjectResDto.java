@@ -3,7 +3,6 @@ package com.BobScript_ng.pTracker.project.dto;
 import java.util.List;
 
 import com.BobScript_ng.pTracker.task.dto.TaskResDto;
-import com.BobScript_ng.pTracker.user.entity.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

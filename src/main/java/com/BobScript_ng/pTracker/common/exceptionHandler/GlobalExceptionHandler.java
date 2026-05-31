@@ -1,7 +1,5 @@
 package com.BobScript_ng.pTracker.common.exceptionHandler;
 
-import org.springframework.web.bind.annotation.ControllerAdvice;
-
 import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.dao.DataIntegrityViolationException;
