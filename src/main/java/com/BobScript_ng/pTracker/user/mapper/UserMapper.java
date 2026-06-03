@@ -18,6 +18,8 @@ public interface UserMapper {
     @Mapping(target = "role", ignore = true)
     User toEntity(ReqUserDto reqUserDto);
 
+    @Mapping(target = "projects", ignore = true) // add this
+
     ResUserDto toResponse(User user);
 
     List<ResUserDto> toResponseList(List<User> user);
